@@ -1,0 +1,15 @@
+---
+- name: "Install lintian from {{ansible_distribution_release}}-backports"
+  apt: name=lintian state=present default_release={{ansible_distribution_release}}-backports
+
+- lineinfile:
+    dest: /root/.sbuildrc
+    create: yes
+    regexp: '^.*\$lintian_opts\s*=.*$'
+    line: '$lintian_opts = ["-i", "-v"];'
+
+- lineinfile:
+    dest: /root/.sbuildrc
+    create: yes
+    regexp: '^.*\$run_lintian\s*=.*$'
+    line: '$run_lintian = 1;'

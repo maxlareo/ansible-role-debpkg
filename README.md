@@ -47,6 +47,10 @@ Default: 'debpkg\_schroot\_homedir/item.key', debpkg\_schroot\_homedir is a dist
 
 Default: 'debpkg\_schroot\_mirror', another distribution specific variable. Set the packages archive mirror used, ex: 'http://debian.mirror.test.org/debian/'.
 
+### `debpkg_lintian`
+
+Default: false. Set to true to install and enable [lintian](https://lintian.debian.org/).
+
 Dependencies
 ------------
 
@@ -79,7 +83,7 @@ Example Playbook
 
 Exemple made on Debian distribution !
 
-On other distributions the default mirror variable will not be the same, so for Debian chroot the mirror variable is optional for a Debian host, but for an Ubuntu host, by exemple, it will be mandatory on a Debian host !
+On other distributions the default mirror variable will not be the same, so for Debian chroot the mirror variable is optional for a Debian chroot, but for an Ubuntu chroot, by exemple, it will be mandatory on a Debian host !
 
 License
 -------

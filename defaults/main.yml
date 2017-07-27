@@ -1,0 +1,6 @@
+---
+# defaults file for maxlareo.debpkg
+
+# A dictionary of chroot to create. 
+# See the README for full list of dict keys available and examples. 
+debpkg_chroots: {}

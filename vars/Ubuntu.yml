@@ -1,0 +1,8 @@
+---
+# Ubuntu specific vars
+debpkg_apt_source_list: 'http://archive.ubuntu.com/ubuntu'
+
+debpkg_schroot_arch: "amd64"
+debpkg_schroot_mirror: 'http://archive.ubuntu.com/ubuntu'
+debpkg_schroot_homedir: '/var/lib/sbuild'
+debpkg_schroot_suffix: 'sbuild'

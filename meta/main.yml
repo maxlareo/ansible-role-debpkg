@@ -1,0 +1,25 @@
+---
+galaxy_info:
+  author: maxlareo
+  description: Install and set Debian packaging build environment
+  license: license (Apache)
+  min_ansible_version: 2.1
+
+  platforms:
+  - name: Ubuntu
+    versions:
+    - zesty
+  - name: Debian
+    versions:
+    - jessie
+    - sid
+    - stretch
+
+  galaxy_tags:
+  - packaging
+  - system
+  - debpkg
+  - sbuild
+  - debian
+
+dependencies: []

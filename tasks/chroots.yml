@@ -1,0 +1,27 @@
+---
+# manage sbuild-createchroot from debpkg_chroots hash
+
+- name: List existing chroots
+  command: schroot --list --all-chroots
+  register: existing_schroots
+  changed_when: false
+
+- name: Create chroots
+  command: >
+    sbuild-createchroot
+    --arch "{{ item.value.arch | default(debpkg_schroot_arch) }}"
+    --chroot-prefix "{{ item.value.prefix | default(item.key) }}"
+    --chroot-suffix "-{{ item.value.suffix | default(debpkg_schroot_suffix) }}"
+    --extra-repository "{{ item.value.extra_repository | default('') }}"
+    "{{ item.value.suite | default(item.key) }}"
+    "{{ item.value.homedir | default(debpkg_schroot_homedir+'/'+item.key) }}"
+    "{{ item.value.mirror | default(debpkg_schroot_mirror) }}"
+  with_dict: "{{ debpkg_chroots }}"
+  when: >
+    'chroot:%s-%s-%s' 
+    %( 
+       item.value.prefix|default(item.key),
+       item.value.arch|default(debpkg_schroot_arch),
+       item.value.suffix|default(debpkg_schroot_suffix)
+    ) 
+    not in existing_schroots.stdout.split()

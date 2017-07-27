@@ -1,0 +1,23 @@
+---
+- name: Add backports apt source list
+  apt_repository: 
+    repo: "deb {{debpkg_apt_source_list}} {{ansible_distribution_release}}-backports main"
+    state: present
+    filename: "{{ansible_distribution_release}}-backports"
+    update_cache: yes
+
+- name: "Install sbuild from {{ansible_distribution_release}}-backports"
+  apt: name=sbuild state=present default_release={{ansible_distribution_release}}-backports
+
+- group:
+    name: sbuild
+    system: yes
+    state: present
+
+- user:
+    name: sbuild
+    state: present
+    system: yes
+    group: sbuild
+    comment: 'Debian source builder,,,'
+    home: /var/lib/sbuild

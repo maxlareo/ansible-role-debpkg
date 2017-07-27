@@ -1,0 +1,9 @@
+---
+# tasks file for maxlareo.debpkg
+
+- name: "Include destribution specific variables - {{ ansible_distribution }}"
+  include_vars: "{{ ansible_distribution }}.yml"
+
+- include: sbuild.yml
+
+- include: chroots.yml

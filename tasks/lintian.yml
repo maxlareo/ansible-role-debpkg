@@ -5,9 +5,9 @@
 - lineinfile:
     dest: /root/.sbuildrc
     regexp: '^.*\$lintian_opts\s*=.*$'
-    line: "{{ '$lintian_opts = [\"-i\", \"-v\"];' if debpkg_lintian else '#$lintian_opts = [\"-i\", \"-v\"];'}}"
+    line: "{{ '$lintian_opts = [\"-i\", \"-v\"];' if debpkg_lintian else '#$lintian_opts = [];'}}"
 
 - lineinfile:
     dest: /root/.sbuildrc
     regexp: '^.*\$run_lintian\s*=.*$'
-    line: "{{ '$run_lintian = 1;' if debpkg_lintian else '#$run_lintian = 1;'}}"
+    line: "{{ '$run_lintian = 1;' if debpkg_lintian else '#$run_lintian = 0;'}}"

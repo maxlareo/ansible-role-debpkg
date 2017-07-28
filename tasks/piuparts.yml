@@ -5,9 +5,9 @@
 - lineinfile:
     dest: /root/.sbuildrc
     regexp: '^.*\$piuparts_opts\s*=.*$'
-    line: "{{ '$piuparts_opts = [\"--keep-sources-list\", \"--schroot\", \"$ENV{PIUPARTS_CHROOT}\"];' if debpkg_piuparts else '#$piuparts_opts = [\"--keep-sources-list\", \"--schroot\", \"$ENV{PIUPARTS_CHROOT}\"];' }}"
+    line: "{{ '$piuparts_opts = [\"--keep-sources-list\", \"--schroot\", \"$ENV{PIUPARTS_CHROOT}\"];' if debpkg_piuparts else '#$piuparts_opts = [];' }}"
 
 - lineinfile:
     dest: /root/.sbuildrc
     regexp: '^.*\$run_piuparts\s*=.*$'
-    line: "{{ '$run_piuparts = 1;' if debpkg_piuparts else '#$run_piuparts = 1;' }}"
+    line: "{{ '$run_piuparts = 1;' if debpkg_piuparts else '#$run_piuparts = 0;' }}"

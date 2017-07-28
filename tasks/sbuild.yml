@@ -21,3 +21,9 @@
     group: sbuild
     comment: 'Debian source builder,,,'
     home: /var/lib/sbuild
+
+- copy:
+    remote_src: true
+    force: no
+    src: /etc/sbuild/sbuild.conf
+    dest: /root/.sbuildrc

@@ -9,4 +9,3 @@
 - include: chroots.yml
 
 - include: lintian.yml
-  when: debpkg_lintian

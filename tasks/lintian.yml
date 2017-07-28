@@ -1,6 +1,7 @@
 ---
 - name: "Install lintian from {{ansible_distribution_release}}-backports"
   apt: name=lintian state=present default_release={{ansible_distribution_release}}-backports
+  when: debpkg_lintian
 
 - lineinfile:
     dest: /root/.sbuildrc

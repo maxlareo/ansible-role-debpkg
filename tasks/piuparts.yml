@@ -1,6 +1,7 @@
 ---
 - name: "Install piuparts from {{ansible_distribution_release}}-backports"
   apt: name=piuparts state=present default_release={{ansible_distribution_release}}-backports
+  when: debpkg_piuparts
 
 - lineinfile:
     dest: /root/.sbuildrc

@@ -51,6 +51,10 @@ Default: 'debpkg\_schroot\_mirror', another distribution specific variable. Set 
 
 Default: false. Set to true to install and enable [lintian](https://lintian.debian.org/).
 
+### `debpkg_piuparts`
+
+Default: false. Set to true to install and enable [piuparts](https://piuparts.debian.org/).
+
 Dependencies
 ------------
 
@@ -65,6 +69,7 @@ Example Playbook
   roles:
   - maxlareo.debpkg
   vars:
+  - debpkg_piuparts: true
   - debpkg_chroots:
       wheezy:
       jessie:

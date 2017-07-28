@@ -1,0 +1,15 @@
+---
+- name: "Install piuparts from {{ansible_distribution_release}}-backports"
+  apt: name=piuparts state=present default_release={{ansible_distribution_release}}-backports
+
+- lineinfile:
+    dest: /root/.sbuildrc
+    create: yes
+    regexp: '^.*\$piuparts_opts\s*=.*$'
+    line: "{{ '$piuparts_opts = [\"--keep-sources-list\", \"--schroot\", \"$ENV{PIUPARTS_CHROOT}\"];' if debpkg_piuparts else '#$piuparts_opts = [\"--keep-sources-list\", \"--schroot\", \"$ENV{PIUPARTS_CHROOT}\"];' }}"
+
+- lineinfile:
+    dest: /root/.sbuildrc
+    create: yes
+    regexp: '^.*\$run_piuparts\s*=.*$'
+    line: "{{ '$run_piuparts = 1;' if debpkg_piuparts else '#$run_piuparts = 1;' }}"

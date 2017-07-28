@@ -7,3 +7,6 @@ debpkg_chroots: {}
 
 # Enable lintian if set to true.
 debpkg_lintian: false
+
+# Enable piuparts if set to true.
+debpkg_piuparts: false

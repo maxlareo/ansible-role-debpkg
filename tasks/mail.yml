@@ -1,0 +1,11 @@
+---
+
+- lineinfile:
+    dest: /root/.sbuildrc
+    regexp: '^.*\$mailfrom\s*=.*$'
+    line: "{{ \"$mailfrom = '%s';\" %(debpkg_mailfrom) if debpkg_mailfrom else \"#$mailfrom = 'Source Builder <sbuild>';\"}}"
+
+- lineinfile:
+    dest: /root/.sbuildrc
+    regexp: '^.*\$mailto\s*=.*$'
+    line: "{{ \"$mailto = '%s';\" %(debpkg_mailfrom) if debpkg_mailto else \"#$mailto = '';\"}}"

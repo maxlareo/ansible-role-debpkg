@@ -11,3 +11,5 @@
 - include: lintian.yml
 
 - include: piuparts.yml
+
+- include: mail.yml

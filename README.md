@@ -55,6 +55,14 @@ Default: false. Set to true to install and enable [lintian](https://lintian.debi
 
 Default: false. Set to true to install and enable [piuparts](https://piuparts.debian.org/).
 
+### `debpkg_mailfrom`
+
+Default: false, so it will use the default sbuild mailfrom variable 'Source Builder \<sbuild\>'. Set to source mail address for mail reports of builds, need debpkg\_mailto option to be set to enable mail reporting.
+
+### `debpkg_mailto`
+
+Default: false. Set to destintaion mail address to send mail reports of builds, this option also enable mail reporting.
+
 Dependencies
 ------------
 

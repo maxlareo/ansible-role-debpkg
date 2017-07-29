@@ -10,3 +10,9 @@ debpkg_lintian: false
 
 # Enable piuparts if set to true.
 debpkg_piuparts: false
+
+# Set the source mail address of mail reporting, use default sbuild variable when false.
+debpkg_mailfrom: false
+
+# Set the destination mail address of mail reporting, this option also enable mail reporting.
+debpkg_mailto: false
